@@ -67,7 +67,7 @@ def MyCNN_Keras2(X_shape, nb_classes, nb_layers=4):
 
 
 # This is a simplified version of Efficient Net B0. There are no residual information flow because it is not a deep network. 
-# Summary of the layers: 1x Conv2D + 3x DepthWise Separable Conv2D + 1x Pooling + 1x Dense + 1x Softmax
+# Summary of the layers: 1x Conv2D + 3x DepthWise Separable Conv2D with batch normalization and 2 strides + 1x Pooling + 1x Dense + 1x Softmax
 def RaspberryNet(X_shape, nb_classes, nb_layers=4):
     # Inputs:
     #    X_shape = [ # spectrograms per batch, # audio channels, # spectrogram freq bins, # spectrogram time bins ]
