@@ -14,7 +14,7 @@ import keras
 import tensorflow as tf
 from keras.models import Sequential, Model, load_model, save_model
 from keras.layers import Input, Dense, TimeDistributed, LSTM, Dropout, Activation
-from keras.layers import Convolution2D, MaxPooling2D, Flatten, Conv2D
+from keras.layers import Convolution2D, SeparableConv2D, MaxPooling2D, Flatten, Conv2D
 from keras.layers.normalization import BatchNormalization
 from keras.layers.advanced_activations import ELU
 from keras.optimizers import SGD, Adam
@@ -67,40 +67,37 @@ def MyCNN_Keras2(X_shape, nb_classes, nb_layers=4):
 
 
 # This is a simplified version of Efficient Net B0. There are no residual information flow because it is not a deep network. 
+# Summary of the layers: 1x Conv2D + 3x DepthWise Separable Conv2D + 1x Pooling + 1x Dense + 1x Softmax
 def RaspberryNet(X_shape, nb_classes, nb_layers=4):
     # Inputs:
     #    X_shape = [ # spectrograms per batch, # audio channels, # spectrogram freq bins, # spectrogram time bins ]
     #    nb_classes = number of output n_classes
-    #    nb_layers = number of conv-pooling sets in the CNN
     from keras import backend as K
     K.set_image_data_format('channels_last')                   # SHH changed on 3/1/2018 b/c tensorflow prefers channels_last
 
-    nb_filters = 32  # number of convolutional filters = "feature maps"
+    nb_filters = 32  # number of 2D convolutional filters = "feature maps"
     kernel_size = (3, 3)  # convolution kernel size
     pool_size = (2, 2)  # size of pooling area for max pooling
-    cl_dropout = 0.5    # conv. layer dropout
-    dl_dropout = 0.6    # dense layer dropout
 
     print(" RaspberryNet: X_shape = ",X_shape,", channels = ",X_shape[3])
     input_shape = (X_shape[1], X_shape[2], X_shape[3])
     model = Sequential()
-    model.add(Conv2D(nb_filters, kernel_size, padding='same', input_shape=input_shape, name="Input"))
+    model.add(Conv2D(nb_filters, kernel_size, strides=2, padding='same', input_shape=input_shape, name="Input"))
+
+    model.add(SeparableConv2D(40, (3,3), strides=2, padding='same', activation='relu'))
+    model.add(BatchNormalization(axis=-1))
+    model.add(SeparableConv2D(112, (3,3), strides=2, padding='same', activation='relu'))
+    model.add(BatchNormalization(axis=-1))
+    model.add(SeparableConv2D(192, (3,3), strides=2, padding='same', activation='relu'))
+    model.add(BatchNormalization(axis=-1))
+
     model.add(MaxPooling2D(pool_size=pool_size))
     model.add(Activation('relu'))        # Leave this relu & BN here.  ELU is not good here (my experience)
     model.add(BatchNormalization(axis=-1))  # axis=1 for 'channels_first'; but tensorflow preferse channels_last (axis=-1)
 
-    for layer in range(nb_layers-1):   # add more layers than just the first
-        model.add(Conv2D(nb_filters, kernel_size, padding='same'))
-        model.add(MaxPooling2D(pool_size=pool_size))
-        model.add(Activation('elu'))
-        model.add(Dropout(cl_dropout))
-        #model.add(BatchNormalization(axis=-1))  # ELU authors reccommend no BatchNorm. I confirm.
-
     model.add(Flatten())
-    model.add(Dense(128))            # 128 is 'arbitrary' for now
-    #model.add(Activation('relu'))   # relu (no BN) works ok here, however ELU works a bit better...
-    model.add(Activation('elu'))
-    model.add(Dropout(dl_dropout))
+    model.add(Dense(32))
+    model.add(Activation('relu'))
     model.add(Dense(nb_classes))
     model.add(Activation("softmax",name="Output"))
     return model
@@ -249,7 +246,8 @@ def setup_model(X, class_names, nb_layers=4, try_checkpoint=True,
     '''
 
     # Here's where one might 'swap out' different neural network 'model' choices
-    serial_model = MyCNN_Keras2(X.shape, nb_classes=len(class_names), nb_layers=nb_layers)
+    #serial_model = MyCNN_Keras2(X.shape, nb_classes=len(class_names), nb_layers=nb_layers)
+    serial_model = RaspberryNet(X.shape, nb_classes=len(class_names), nb_layers=nb_layers)
     #serial_model = old_model(X.shape, nb_classes=len(class_names), nb_layers=nb_layers)
     #serial_model = imageModels(X, nb_classes=len(class_names))
 
