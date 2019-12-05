@@ -1,0 +1,9 @@
+ADL
+bag
+ball
+basket
+book
+chair
+fork
+rndy
+rndychair

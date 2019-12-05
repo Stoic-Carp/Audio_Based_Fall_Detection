@@ -1,0 +1,316 @@
+(fyp) PS D:\MTech\FYP\Audio Fall Classification with Pi\panotti-fall-classification\Audio Fall Classification> python .\train_network.py
+['D:\\MTech\\FYP\\Audio Fall Classification with Pi\\panotti-fall-classification\\Audio Fall Classification', 'D:\\Anaconda3\\envs\\fyp\\python37.zip', 'D:\\Anaconda3\\envs\\fyp\\DLLs', 'D:\\Anaconda3\\envs\\fyp\\lib', 'D:\\Anaconda3\\envs\\fyp', 'C:\\Users\\Yutian\\AppData\\Roaming\\Python\\Python37\\site-packages', 'D:\\Anaconda3\\envs\\fyp\\lib\\site-packages']
+3.7.3 (default, Apr 24 2019, 15:29:51) [MSC v.1915 64 bit (AMD64)]
+Using TensorFlow backend.
+class_names =  ['ADL', 'bag', 'ball', 'basket', 'book', 'chair', 'fork', 'rndy', 'rndychair']
+       total files =  4495 , going to load total_load =  4480
+total files =  4495 , going to load total_load =  4480
+   get_sample_dimensions: cook_d2_h100_rand_0.wav.npz: melgram.shape =  (1, 96, 430, 8)
+ melgram dimensions:  (1, 96, 430, 8)
+
+ Loading class 1/9: 'ADL', File 45/45: Preproc/Train/ADL/news_d2_h100_rand_0.wav.npz
+ Loading class 2/9: 'bag', File 614/614: Preproc/Train/bag/bag_d1h50_rand_3_14.wav.npz
+ Loading class 3/9: 'ball', File 614/614: Preproc/Train/ball/ball_d2h50_free_3_21.wav.npz
+ Loading class 4/9: 'basket', File 614/614: Preproc/Train/basket/basket_d4h0_kick_4_46.wav.npz
+ Loading class 5/9: 'book', File 614/614: Preproc/Train/book/book_d4h100_rand_4_55.wav.npz
+ Loading class 6/9: 'chair', File 921/921: Preproc/Train/chair/chair_d4h0_back_4_78.wav.npz
+ Loading class 7/9: 'fork', File 614/614: Preproc/Train/fork/fork_d1h100_rand_7_94.wav.npz
+ Loading class 8/9: 'rndy', File 335/335: Preproc/Train/rndy/rndy_d4st_free_0_114.wav.npz
+ Loading class 9/9: 'rndychair', File 101/124: Preproc/Train/rndychair/rndy_d4st_chair_4_127.wav.npz
+ RaspberryNet: X_shape =  (4480, 96, 430, 8) , channels =  8
+WARNING:tensorflow:From D:\Anaconda3\envs\fyp\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+2019-12-05 13:47:01.120687: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
+2019-12-05 13:47:01.130747: I tensorflow/core/common_runtime/process_util.cc:71] Creating new thread pool with default inter op setting: 12. Tune using inter_op_parallelism_threads for best performance.
+Looking for previous weights...
+No weights file detected, so starting from scratch.
+ Available GPUs =  [] , count =  0
+Summary of serial model (duplicated across 0 GPUs):
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+Input (Conv2D)               (None, 96, 430, 32)       2336      
+_________________________________________________________________
+separable_conv2d_1 (Separabl (None, 48, 215, 40)       1608      
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 48, 215, 40)       160       
+_________________________________________________________________
+separable_conv2d_2 (Separabl (None, 24, 108, 80)       4280      
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 24, 108, 80)       320       
+_________________________________________________________________
+separable_conv2d_3 (Separabl (None, 12, 54, 112)       11072     
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 12, 54, 112)       448       
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 6, 27, 112)        0
+_________________________________________________________________
+activation_1 (Activation)    (None, 6, 27, 112)        0
+_________________________________________________________________
+batch_normalization_4 (Batch (None, 6, 27, 112)        448       
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 18144)             0
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                290320    
+_________________________________________________________________
+activation_2 (Activation)    (None, 16)                0
+_________________________________________________________________
+dense_2 (Dense)              (None, 9)                 153
+_________________________________________________________________
+Output (Activation)          (None, 9)                 0
+=================================================================
+Total params: 311,145
+Trainable params: 310,457
+Non-trainable params: 688
+_________________________________________________________________
+WARNING:tensorflow:From D:\Anaconda3\envs\fyp\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Train on 3583 samples, validate on 896 samples
+Epoch 1/20
+3583/3583 [==============================] - 98s 27ms/step - loss: 2.1384 - acc: 0.3092 - val_loss: 1.8679 - val_acc: 0.3136
+
+Epoch 00001: val_loss improved from inf to 1.86794, saving model to weights.hdf5
+Epoch 2/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 1.8249 - acc: 0.3274 - val_loss: 2.6299 - val_acc: 0.1886
+
+Epoch 00002: val_loss did not improve
+Epoch 3/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 1.6705 - acc: 0.3606 - val_loss: 1.7042 - val_acc: 0.3371
+
+Epoch 00003: val_loss improved from 1.86794 to 1.70420, saving model to weights.hdf5
+Epoch 4/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 1.4551 - acc: 0.4357 - val_loss: 1.5283 - val_acc: 0.4219
+
+Epoch 00004: val_loss improved from 1.70420 to 1.52831, saving model to weights.hdf5
+Epoch 5/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 1.2637 - acc: 0.4890 - val_loss: 1.4603 - val_acc: 0.4710
+
+Epoch 00005: val_loss improved from 1.52831 to 1.46027, saving model to weights.hdf5
+Epoch 6/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 1.1173 - acc: 0.6051 - val_loss: 12.3128 - val_acc: 0.1183
+
+Epoch 00006: val_loss did not improve
+Epoch 7/20
+3583/3583 [==============================] - 95s 27ms/step - loss: 0.7455 - acc: 0.7471 - val_loss: 1.4978 - val_acc: 0.6283
+
+Epoch 00007: val_loss did not improve
+Epoch 8/20
+3583/3583 [==============================] - 95s 27ms/step - loss: 0.4098 - acc: 0.8616 - val_loss: 1.5999 - val_acc: 0.6272
+
+Epoch 00008: val_loss did not improve
+Epoch 9/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 0.3200 - acc: 0.9059 - val_loss: 0.3989 - val_acc: 0.8672
+
+Epoch 00009: val_loss improved from 1.46027 to 0.39889, saving model to weights.hdf5
+Epoch 10/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 0.2290 - acc: 0.9406 - val_loss: 3.0514 - val_acc: 0.4944
+
+Epoch 00010: val_loss did not improve
+Epoch 11/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 0.2000 - acc: 0.9484 - val_loss: 0.3509 - val_acc: 0.8739
+Epoch 00011: val_loss improved from 0.39889 to 0.35087, saving model to weights.hdf5
+Epoch 12/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 0.1735 - acc: 0.9606 - val_loss: 0.5257 - val_acc: 0.8025
+
+Epoch 00012: val_loss did not improve
+Epoch 13/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 0.1432 - acc: 0.9685 - val_loss: 0.2289 - val_acc: 0.9375
+
+Epoch 00013: val_loss improved from 0.35087 to 0.22890, saving model to weights.hdf5
+Epoch 14/20
+3583/3583 [==============================] - 95s 27ms/step - loss: 0.1139 - acc: 0.9816 - val_loss: 0.6239 - val_acc: 0.8237
+
+Epoch 00014: val_loss did not improve
+Epoch 15/20
+3583/3583 [==============================] - 95s 26ms/step - loss: 0.1287 - acc: 0.9752 - val_loss: 0.5482 - val_acc: 0.8170
+
+Epoch 00015: val_loss did not improve
+Epoch 16/20
+3583/3583 [==============================] - 95s 27ms/step - loss: 0.0997 - acc: 0.9863 - val_loss: 0.4854 - val_acc: 0.8560
+
+Epoch 00016: val_loss did not improve
+Epoch 17/20
+3583/3583 [==============================] - 96s 27ms/step - loss: 0.0934 - acc: 0.9886 - val_loss: 0.2907 - val_acc: 0.9219
+
+Epoch 00017: val_loss did not improve
+Epoch 18/20
+3583/3583 [==============================] - 96s 27ms/step - loss: 0.1014 - acc: 0.9838 - val_loss: 0.5541 - val_acc: 0.8259
+
+Epoch 00018: val_loss did not improve
+Epoch 19/20
+3583/3583 [==============================] - 95s 27ms/step - loss: 0.0832 - acc: 0.9922 - val_loss: 0.2861 - val_acc: 0.9230
+
+Epoch 00019: val_loss did not improve
+Epoch 20/20
+3583/3583 [==============================] - 96s 27ms/step - loss: 0.0756 - acc: 0.9950 - val_loss: 0.1164 - val_acc: 0.9810
+
+Epoch 00020: val_loss improved from 0.22890 to 0.11635, saving model to weights.hdf5
+class_names =  ['ADL', 'bag', 'ball', 'basket', 'book', 'chair', 'fork', 'rndy', 'rndychair']
+       total files =  1129 , going to load total_load =  1129
+total files =  1129 , going to load total_load =  1129
+   get_sample_dimensions: cook_d2_h100_rand_2.wav.npz: melgram.shape =  (1, 96, 430, 8)
+ melgram dimensions:  (1, 96, 430, 8)
+
+ Loading class 1/9: 'ADL', File 12/12: Preproc/Train/../Test/ADL/radio_d2_h100_rand_3.wav.npz
+ Loading class 2/9: 'bag', File 154/154: Preproc/Train/../Test/bag/bag_d4h50_rand_7_8.wav.npz
+ Loading class 3/9: 'ball', File 154/154: Preproc/Train/../Test/ball/ball_d2h100_free_1_22.wav.npz
+ Loading class 4/9: 'basket', File 154/154: Preproc/Train/../Test/basket/basket_d2h0_kick_7_42.wav.npz
+ Loading class 5/9: 'book', File 154/154: Preproc/Train/../Test/book/book_d6h100_rand_4_61.wav.npz
+ Loading class 6/9: 'chair', File 231/231: Preproc/Train/../Test/chair/chair_d6h0_side_6_81.wav.npz
+ Loading class 7/9: 'fork', File 154/154: Preproc/Train/../Test/fork/fork_d1h100_rand_1_85.wav.npz
+ Loading class 8/9: 'rndy', File 84/84: Preproc/Train/../Test/rndy/rndy_d2st_bar_4_115.wav.npz
+ Loading class 9/9: 'rndychair', File 32/32: Preproc/Train/../Test/rndychair/rndy_d4st_chair_3_132.wav.npz
+Test loss: 0.12431626922003033
+Test accuracy: 0.9813994686090387
+(fyp) PS D:\MTech\FYP\Audio Fall Classification with Pi\panotti-fall-classification\Audio Fall Classification> python .\eval_network.py
+Using TensorFlow backend.
+class_names =  ['ADL', 'bag', 'ball', 'basket', 'book', 'chair', 'fork', 'rndy', 'rndychair']
+       total files =  1129 , going to load total_load =  1120
+total files =  1129 , going to load total_load =  1120
+   get_sample_dimensions: cook_d2_h100_rand_2.wav.npz: melgram.shape =  (1, 96, 430, 8)
+ melgram dimensions:  (1, 96, 430, 8)
+
+ Loading class 1/9: 'ADL', File 12/12: Preproc/Test/ADL/cook_d2_h100_rand_2.wav.npz
+ Loading class 2/9: 'bag', File 154/154: Preproc/Test/bag/bag_d2h100_rand_2_13.wav.npz
+ Loading class 3/9: 'ball', File 154/154: Preproc/Test/ball/ball_d6h100_free_6_26.wav.npz
+ Loading class 4/9: 'basket', File 154/154: Preproc/Test/basket/basket_d4h0_free_0_46.wav.npz
+ Loading class 5/9: 'book', File 154/154: Preproc/Test/book/book_d2h100_rand_5_52.wav.npz
+ Loading class 6/9: 'chair', File 231/231: Preproc/Test/chair/chair_d4h0_back_6_70.wav.npz
+ Loading class 7/9: 'fork', File 154/154: Preproc/Test/fork/fork_d4h100_rand_2_87.wav.npz
+ Loading class 8/9: 'rndy', File 84/84: Preproc/Test/rndy/rndy_d6st_free_4_111.wav.npz
+ Loading class 9/9: 'rndychair', File 1/32: Preproc/Test/rndychair/rndy_d6st_chair_0_124.wav.npz
+class names =  ['ADL', 'bag', 'ball', 'basket', 'book', 'chair', 'fork', 'rndy', 'rndychair']
+ RaspberryNet: X_shape =  (1120, 96, 430, 8) , channels =  8
+WARNING:tensorflow:From D:\Anaconda3\envs\fyp\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+2019-12-05 14:23:37.589619: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
+2019-12-05 14:23:37.598655: I tensorflow/core/common_runtime/process_util.cc:71] Creating new thread pool with default inter op setting: 12. Tune using inter_op_parallelism_threads for best performance.
+Looking for previous weights...
+Weights file detected. Loading from  weights.hdf5
+WARNING:tensorflow:From D:\Anaconda3\envs\fyp\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+ Available GPUs =  [] , count =  0
+Summary of serial model (duplicated across 0 GPUs):
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+Input (Conv2D)               (None, 96, 430, 32)       2336
+_________________________________________________________________
+separable_conv2d_1 (Separabl (None, 48, 215, 40)       1608
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 48, 215, 40)       160
+_________________________________________________________________
+separable_conv2d_2 (Separabl (None, 24, 108, 80)       4280
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 24, 108, 80)       320
+_________________________________________________________________
+separable_conv2d_3 (Separabl (None, 12, 54, 112)       11072     
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 12, 54, 112)       448
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 6, 27, 112)        0
+_________________________________________________________________
+activation_1 (Activation)    (None, 6, 27, 112)        0
+_________________________________________________________________
+batch_normalization_4 (Batch (None, 6, 27, 112)        448
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 18144)             0
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                290320
+_________________________________________________________________
+activation_2 (Activation)    (None, 16)                0
+_________________________________________________________________
+dense_2 (Dense)              (None, 9)                 153
+_________________________________________________________________
+Output (Activation)          (None, 9)                 0
+=================================================================
+Total params: 311,145
+Trainable params: 310,457
+Non-trainable params: 688
+_________________________________________________________________
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+Input (Conv2D)               (None, 96, 430, 32)       2336
+_________________________________________________________________
+separable_conv2d_1 (Separabl (None, 48, 215, 40)       1608      
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 48, 215, 40)       160
+_________________________________________________________________
+separable_conv2d_2 (Separabl (None, 24, 108, 80)       4280
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 24, 108, 80)       320
+_________________________________________________________________
+separable_conv2d_3 (Separabl (None, 12, 54, 112)       11072
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 12, 54, 112)       448
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 6, 27, 112)        0
+_________________________________________________________________
+activation_1 (Activation)    (None, 6, 27, 112)        0
+_________________________________________________________________
+batch_normalization_4 (Batch (None, 6, 27, 112)        448
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 18144)             0
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                290320
+_________________________________________________________________
+activation_2 (Activation)    (None, 16)                0
+_________________________________________________________________
+dense_2 (Dense)              (None, 9)                 153
+_________________________________________________________________
+Output (Activation)          (None, 9)                 0
+=================================================================
+Total params: 311,145
+Trainable params: 310,457
+Non-trainable params: 688
+_________________________________________________________________
+Running predict...
+Counting mistakes
+    Found 21 total mistakes out of 1120 attempts
+      Mistakes by class:
+          class 'ADL': 0
+          class 'bag': 1
+                   Preproc/Test/bag/bag_d4h50_rand_6_2.wav.npz      : should be bag but came out as book
+          class 'ball': 5
+                   Preproc/Test/ball/ball_d4h50_free_0_30.wav.npz: should be ball but came out as rndychair
+                   Preproc/Test/ball/ball_d6h50_free_6_31.wav.npz: should be ball but came out as book
+                   Preproc/Test/ball/ball_d4h100_free_0_22.wav.npz  : should be ball but came out as book
+                   Preproc/Test/ball/ball_d4h50_free_0_27.wav.npz   : should be ball but came out as book
+                   Preproc/Test/ball/ball_d6h50_free_1_18.wav.npz   : should be ball but came out as book
+          class 'basket': 5
+                   Preproc/Test/basket/basket_d6h0_free_2_36.wav.npz: should be basket but came out as chair
+                   Preproc/Test/basket/basket_d6h0_free_7_35.wav.npz: should be basket but came out as book
+                   Preproc/Test/basket/basket_d6h0_free_5_35.wav.npz: should be basket but came out as book
+                   Preproc/Test/basket/basket_d4h0_kick_3_44.wav.npz: should be basket but came out as chair
+                   Preproc/Test/basket/basket_d6h0_kick_6_35.wav.npz: should be basket but came out as ball
+          class 'book': 4
+                   Preproc/Test/book/book_d6h50_rand_2_63.wav.npz   : should be book but came out as bag
+                   Preproc/Test/book/book_d6h100_rand_6_53.wav.npz  : should be book but came out as bag
+                   Preproc/Test/book/book_d6h50_rand_1_52.wav.npz   : should be book but came out as ball
+                   Preproc/Test/book/book_d2h50_rand_4_55.wav.npz   : should be book but came out as bag
+          class 'chair': 4
+                   Preproc/Test/chair/chair_d1h0_back_3_73.wav.npz: should be chair but came out as bag
+                   Preproc/Test/chair/chair_d1h0_front_4_78.wav.npz : should be chair but came out as rndychair
+                   Preproc/Test/chair/chair_d1h0_front_4_80.wav.npz : should be chair but came out as rndychair
+                   Preproc/Test/chair/chair_d1h0_front_4_76.wav.npz : should be chair but came out as rndychair
+          class 'fork': 0
+          class 'rndy': 2
+                   Preproc/Test/rndy/rndy_d4st_free_2_115.wav.npz: should be rndy but came out as bag
+                   Preproc/Test/rndy/rndy_d4st_free_2_107.wav.npz   : should be rndy but came out as bag
+          class 'rndychair': 0
+Measuring ROC...
+Traceback (most recent call last):
+  File ".\eval_network.py", line 135, in <module>
+    eval_network(weights_file=args.weights, classpath=args.classpath, batch_size=args.batch_size)
+  File ".\eval_network.py", line 85, in eval_network
+    fpr[i], tpr[i], _ = roc_curve(Y_test[:, i], y_scores[:, i])
+  File "D:\Anaconda3\envs\fyp\lib\site-packages\sklearn\metrics\ranking.py", line 622, in roc_curve
+    y_true, y_score, pos_label=pos_label, sample_weight=sample_weight)
+  File "D:\Anaconda3\envs\fyp\lib\site-packages\sklearn\metrics\ranking.py", line 396, in _binary_clf_curve
+    raise ValueError("{0} format is not supported".format(y_type))
+ValueError: continuous format is not supported
