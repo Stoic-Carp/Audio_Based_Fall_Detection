@@ -5,3 +5,7 @@ nohup.out
 .vscode
 
 .ipynb_checkpoints/
+
+*.json
+
+*.wav
