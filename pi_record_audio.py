@@ -5,7 +5,7 @@ import wave
 # Default channels are 8 for Matrix Creator and recording seconds are 5 
 CHUNK = 2048
 FORMAT = pyaudio.paInt16
-CHANNELS = 1
+CHANNELS = 8
 RATE = 96000
 RECORD_SECONDS = 5
 WAVE_OUTPUT_FILENAME = "output.wav"
@@ -45,5 +45,3 @@ outputFile.setsampwidth(mic.get_sample_size(FORMAT))
 outputFile.setframerate(RATE)
 outputFile.writeframes(b''.join(frames))
 outputFile.close()
-
-#TO DO: add in preprocess functions to process the wave file to the Panotti preprocess format 
