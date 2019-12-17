@@ -6,7 +6,7 @@
 ## Usage
 1. Record the audio file using 
 
-    `$ python preprocess_data.py` 
+    `$ python pi_record_audio.py` 
 
 2. Run the prediction using 
 
