@@ -36,7 +36,8 @@ def predict_one(signal, sr, model, expected_melgram_shape):
     return model.predict(X, batch_size=1, verbose=False)[0]
 
 
-def send_email(contents, attachments):
+def send_email(contents, attachments=None):
+    # receiver = 'e0267395@u.nus.edu'
     receiver = "e0267856@u.nus.edu"
     sender = "mtechke30fyp@gmail.com"
     yag = yagmail.SMTP(sender)
@@ -54,6 +55,7 @@ def main(args):
     dur = args.dur
     resample = args.resample
     mono = args.mono
+    only_randy = args.only_randy
 
     # Load the model
     model, class_names = load_model_ext(weights_file)
@@ -92,12 +94,20 @@ def main(args):
             for i in range(nb_classes):
                 print(class_names[i], ": ", y_proba[i], ", ", end="", sep="")
             answer = class_names[np.argmax(y_proba)]
-            print("--> ANSWER:", class_names[np.argmax(y_proba)])
+            print("--> ANSWER:", answer)
             outstr = '\n  {\n   "id": "'+str(idnum)+'",\n      "name":"' + \
                 infile+'",\n      "tags":[\n   "'+answer+'"]\n  }'
             if (idnum < numfiles-1):
                 outstr += ','
-            email_content += outstr
+            if only_randy:
+                if answer == 'rndy' or answer == 'rndychair':
+                    email_content = outstr
+                    send_email(email_content)
+                else:
+                    print('Not sending email as prediction is not rndy or rndychair')
+
+            else:
+                email_content += outstr
             json_file.write(outstr)
             json_file.flush()     # keep json file up to date
         else:
@@ -106,7 +116,8 @@ def main(args):
 
     json_file.write("]\n}\n")
     json_file.close()
-    send_email(email_content, 'data.json')
+    if not only_randy:
+        send_email(email_content, 'data.json')
 
     return
 
@@ -124,7 +135,8 @@ if __name__ == '__main__':
                         default=44100, help="convert input audio to mono")
     parser.add_argument('-d', "--dur",  type=float, default=None,
                         help='Max duration (in seconds) of each clip')
-
+    parser.add_argument('-or', '--only_randy',
+                        help='sends email if it is randy chair or randy', action='store_true')
     parser.add_argument('file', help="file(s) to classify", nargs='+')
     args = parser.parse_args()
 
