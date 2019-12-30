@@ -280,3 +280,6 @@ def build_dataset(path="Preproc/Train/", load_frac=1.0, batch_size=None, tile=Fa
     X, Y, paths = shuffle_XY_paths(X,Y,paths)  # mix up classes, & files within classes
 
     return X, Y, paths, class_names
+
+if __name__ == "__main__":
+    X_test, Y_test, paths, class_names = build_dataset('Preproc/Test/')

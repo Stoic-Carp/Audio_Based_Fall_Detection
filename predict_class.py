@@ -23,10 +23,11 @@ def get_canonical_shape(signal):
 
 # class_names, model)#, weights_file="weights.hdf5"):
 def predict_one(signal, sr, model, expected_melgram_shape):
-    X = make_layered_melgram(signal, sr)
+    X = make_layered_melgram(signal, sr, mels=96, phase=False)
     print("signal.shape, melgram_shape, sr = ", signal.shape, X.shape, sr)
 
     if (X.shape[1:] != expected_melgram_shape):   # resize if necessary, pad with zeros
+        print('I SHOULDNT BE HERE!!!')
         Xnew = np.zeros([1]+list(expected_melgram_shape))
         min1 = min(Xnew.shape[1], X.shape[1])
         min2 = min(Xnew.shape[2], X.shape[2])
