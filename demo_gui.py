@@ -1,4 +1,5 @@
 import tkinter as tk
+import yagmail
 
 from tkinter.filedialog import askopenfilename
 import h5py
