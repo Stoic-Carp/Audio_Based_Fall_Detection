@@ -59,7 +59,8 @@ def send_email(contents, attachments=None):
 
 def predict_one():
     X = preprocess(frames)
-    answer = model.predict(X, batch_size=1, verbose=False)[0]
+    y_proba = model.predict(X, batch_size=1, verbose=False)[0]
+    answer = class_names[np.argmax(y_proba)]
     status.set(answer)
 
 
