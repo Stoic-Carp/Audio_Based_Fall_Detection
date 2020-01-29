@@ -61,6 +61,9 @@ def predict_one():
     y_proba = model.predict(X, batch_size=1, verbose=False)[0]
     answer = class_names[np.argmax(y_proba)]
     status.set(answer)
+    if answer == 'rndy' or answer == 'rndychair':
+        email_content = 'FALL DETECTED'
+        send_email(email_content)
 
 
 def preprocess(signal, resample=SR, mono=MONO, max_shape=MAX_SHAPE, mels=MELS, phase=PHASE):
