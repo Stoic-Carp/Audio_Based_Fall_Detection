@@ -10,13 +10,12 @@ import preprocess_data
 
 # recording configs
 # Default channels are 8 for Matrix Creator and recording seconds are 5
-CHUNK = 2048
-FORMAT = pyaudio.paFloat32
+CHUNK = 1024
+FORMAT = pyaudio.paInt16
 CHANNELS = 8
 RATE = 96000
 RECORD_SECONDS = 5
 WEIGHTS_PATH = 'weights.hdf5'
-RECORD_SECONDS = 5
 SR = 44100
 # SR = None
 MAX_SHAPE = (8, 220148)
@@ -120,7 +119,7 @@ def record():
     frames = []
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
         data = stream.read(CHUNK)
-        np_data = np.frombuffer(data, dtype=np.float32)
+        np_data = np.frombuffer(data, dtype=np.float16)
         frames.append(np_data)
 
     status.set("* done recording")
