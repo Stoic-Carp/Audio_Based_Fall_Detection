@@ -129,6 +129,8 @@ def record():
     stream.close()
     mic.terminate()
 
+    frames = np.array(frames)
+
 
 if __name__ == "__main__":
     window = tk.Tk()
