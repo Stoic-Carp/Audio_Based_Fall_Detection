@@ -10,7 +10,7 @@ import preprocess_data
 
 # recording configs
 # Default channels are 8 for Matrix Creator and recording seconds are 5
-CHUNK = 1024
+CHUNK = 2048
 FORMAT = pyaudio.paInt16
 CHANNELS = 8
 RATE = 96000
