@@ -119,7 +119,7 @@ def record():
     frames = []
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
         data = stream.read(CHUNK)
-        np_data = np.frombuffer(data, dtype=np.float16)
+        np_data = np.frombuffer(data, dtype=np.int16)
         frames.append(np_data)
 
     status.set("* done recording")
