@@ -1,0 +1,566 @@
+Microsoft Windows [Version 10.0.18362.592]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+G:\Projects\FYP\Audio Fall Classification with Pi\Audio Based Fall Detection 3fold\Audio_Based_Fall_Detection>G:/Anaconda3/Scripts/activate
+
+(base) G:\Projects\FYP\Audio Fall Classification with Pi\Audio Based Fall Detection 3fold\Audio_Based_Fall_Detection>conda activate fyp
+
+(fyp) G:\Projects\FYP\Audio Fall Classification with Pi\Audio Based Fall Detection 3fold\Audio_Based_Fall_Detection>python train_network_5CV.py
+['G:\\Projects\\FYP\\Audio Fall Classification with Pi\\Audio Based Fall Detection 3fold\\Audio_Based_Fall_Detection', 'G:\\Anaconda3\\envs\\fyp\\python37.zip', 'G:\\Anaconda3\\envs\\fyp\\DLLs', 'G:\\Anaconda3\\envs\\fyp\\lib', 'G:\\Anaconda3\\envs\\fyp', 'G:\\Anaconda3\\envs\\fyp\\lib\\site-packages', 'G:\\Anaconda3\\envs\\fyp\\lib\\site-packages\\win32', 'G:\\Anaconda3\\envs\\fyp\\lib\\site-packages\\win32\\lib', 'G:\\Anaconda3\\envs\\fyp\\lib\\site-packages\\Pythonwin']
+3.7.5 (default, Oct 31 2019, 15:18:51) [MSC v.1916 64 bit (AMD64)]
+Using TensorFlow backend.
+class_names =  ['ADL', 'bag', 'ball', 'basket', 'book', 'chair', 'fork', 'rndy', 'rndychair']
+       total files =  4495 , going to load total_load =  4480
+total files =  4495 , going to load total_load =  4480       
+   get_sample_dimensions: cook_d2_h100_rand_0.wav.npz: melgram.shape =  (1, 96, 430, 8)
+ melgram dimensions:  (1, 96, 430, 8)
+
+ Loading class 1/9: 'ADL', File 45/45: Preproc/Train/ADL/walltv_d2_rand_2.wav.npz
+ Loading class 2/9: 'bag', File 614/614: Preproc/Train/bag/bag_d2h100_rand_6_14.wav.npz
+ Loading class 3/9: 'ball', File 614/614: Preproc/Train/ball/ball_d1h100_free_7_17.wav.npz
+ Loading class 4/9: 'basket', File 614/614: Preproc/Train/basket/basket_d2h0_kick_0_43.wav.npz
+ Loading class 5/9: 'book', File 614/614: Preproc/Train/book/book_d6h50_rand_2_59.wav.npz
+ Loading class 6/9: 'chair', File 921/921: Preproc/Train/chair/chair_d1h0_front_6_72.wav.npz
+ Loading class 7/9: 'fork', File 614/614: Preproc/Train/fork/fork_d6h50_rand_7_87.wav.npz
+ Loading class 8/9: 'rndy', File 335/335: Preproc/Train/rndy/rndy_d2st_bar_3_107.wav.npz
+ Loading class 9/9: 'rndychair', File 101/124: Preproc/Train/rndychair/rndy_d6st_chair_5_121.wav.npz
+ RaspberryNet: X_shape =  (4480, 96, 430, 8) , channels =  8
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:74: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:517: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:4138: The name tf.random_uniform is deprecated. Please use tf.random.uniform instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:174: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:181: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:186: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2020-02-10 17:18:18.645293: I tensorflow/core/platform/cpu_feature_guard.cc:145] This TensorFlow binary is optimized with Intel(R) MKL-DNN to use the following CPU instructions in performance critical operations:  AVX AVX2
+To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-02-10 17:18:18.684471: I tensorflow/core/common_runtime/process_util.cc:115] Creating new thread pool with default inter op setting: 12. Tune using inter_op_parallelism_threads for best performance.
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:190: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:199: The name tf.is_variable_initialized is deprecated. Please use tf.compat.v1.is_variable_initialized instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:206: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:1834: The name tf.nn.fused_batch_norm is deprecated. Please use tf.compat.v1.nn.fused_batch_norm instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:133: The name tf.placeholder_with_default is deprecated. Please use tf.compat.v1.placeholder_with_default instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:3976: The name tf.nn.max_pool is deprecated. Please use tf.nn.max_pool2d instead.
+
+Looking for previous weights...
+Weights file detected. Loading from  weights.hdf5
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\optimizers.py:790: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:3295: The name tf.log is deprecated. Please use tf.math.log instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\tensorflow_core\python\ops\math_grad.py:1424: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:986: The name tf.assign_add is deprecated. Please use tf.compat.v1.assign_add instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:973: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+ Available GPUs =  [] , count =  0
+Summary of serial model (duplicated across 0 GPUs):
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+Input (Conv2D)               (None, 96, 430, 32)       2336
+_________________________________________________________________
+separable_conv2d_1 (Separabl (None, 48, 215, 40)       1608      
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 48, 215, 40)       160
+_________________________________________________________________
+separable_conv2d_2 (Separabl (None, 24, 108, 80)       4280
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 24, 108, 80)       320
+_________________________________________________________________
+separable_conv2d_3 (Separabl (None, 12, 54, 112)       11072     
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 12, 54, 112)       448
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 6, 27, 112)        0
+_________________________________________________________________
+activation_1 (Activation)    (None, 6, 27, 112)        0
+_________________________________________________________________
+batch_normalization_4 (Batch (None, 6, 27, 112)        448
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 18144)             0
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                290320
+_________________________________________________________________
+activation_2 (Activation)    (None, 16)                0
+_________________________________________________________________
+dense_2 (Dense)              (None, 9)                 153
+_________________________________________________________________
+Output (Activation)          (None, 9)                 0
+=================================================================
+Total params: 311,145
+Trainable params: 310,457
+Non-trainable params: 688
+_________________________________________________________________
+Train on 3584 samples, validate on 896 samples
+Epoch 1/20
+OMP: Info #212: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #213: KMP_AFFINITY: cpuid leaf 11 not supported - decoding legacy APIC ids.
+OMP: Info #149: KMP_AFFINITY: Affinity capable, using global cpuid info
+OMP: Info #154: KMP_AFFINITY: Initial OS proc set respected: 0-11
+OMP: Info #156: KMP_AFFINITY: 12 available OS procs
+OMP: Info #157: KMP_AFFINITY: Uniform topology
+OMP: Info #159: KMP_AFFINITY: 1 packages x 1 cores/pkg x 12 threads/core (1 total cores)
+OMP: Info #214: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #171: KMP_AFFINITY: OS proc 0 maps to package 0 thread 0 
+OMP: Info #171: KMP_AFFINITY: OS proc 1 maps to package 0 thread 1
+OMP: Info #171: KMP_AFFINITY: OS proc 2 maps to package 0 thread 2
+OMP: Info #171: KMP_AFFINITY: OS proc 3 maps to package 0 thread 3
+OMP: Info #171: KMP_AFFINITY: OS proc 4 maps to package 0 thread 4
+OMP: Info #171: KMP_AFFINITY: OS proc 5 maps to package 0 thread 5
+OMP: Info #171: KMP_AFFINITY: OS proc 6 maps to package 0 thread 8
+OMP: Info #171: KMP_AFFINITY: OS proc 7 maps to package 0 thread 9
+OMP: Info #171: KMP_AFFINITY: OS proc 8 maps to package 0 thread 10
+OMP: Info #171: KMP_AFFINITY: OS proc 9 maps to package 0 thread 11
+OMP: Info #171: KMP_AFFINITY: OS proc 10 maps to package 0 thread 12
+OMP: Info #171: KMP_AFFINITY: OS proc 11 maps to package 0 thread 13
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 6092 thread 0 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 7992 thread 1 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 2900 thread 2 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 16492 thread 3 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 22948 thread 4 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 16132 thread 5 bound to OS proc set 5
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 24356 thread 6 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 5656 thread 7 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 23760 thread 8 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 19588 thread 9 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 8628 thread 10 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 23620 thread 11 bound to OS proc set 11
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 18192 thread 12 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 15560 thread 13 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 9736 thread 14 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 3932 thread 16 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 16612 thread 15 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 12512 thread 17 bound to OS proc set 5
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 14492 thread 18 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 6880 thread 19 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 18960 thread 22 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 22668 thread 20 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 6336 thread 21 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 16188 thread 23 bound to OS proc set 11
+  40/3584 [..............................] - ETA: 9:10 - loss: 1.1608 - acc: 0.5750OMP: Info #250: KMP_AFFINITY: pid 8024 tid 20032 thread 24 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 21064 thread 25 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 12116 thread 27 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 8120 thread 26 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 18020 thread 28 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 17100 thread 29 bound to OS proc set 5
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 8428 thread 30 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 22388 thread 31 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 11200 thread 32 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 23500 thread 33 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 19716 thread 34 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 12492 thread 35 bound to OS proc set 11
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 20528 thread 36 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 22984 thread 37 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 10608 thread 38 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 10020 thread 39 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 18908 thread 42 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 3944 thread 40 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 18996 thread 41 bound to OS proc set 5
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 4216 thread 43 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 17760 thread 44 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 12908 thread 45 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 2692 thread 46 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 17556 thread 47 bound to OS proc set 11
+  80/3584 [..............................] - ETA: 5:32 - loss: 1.1002 - acc: 0.5875OMP: Info #250: KMP_AFFINITY: pid 8024 tid 4700 thread 48 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 11880 thread 49 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 3608 thread 50 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 11396 thread 51 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 12920 thread 52 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 10152 thread 53 bound to OS proc set 5
+ 120/3584 [>.............................] - ETA: 4:19 - loss: 1.0637 - acc: 0.5917OMP: Info #250: KMP_AFFINITY: pid 8024 tid 24548 thread 54 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 11132 thread 55 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 14528 thread 56 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 8260 thread 57 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 5348 thread 58 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 23940 thread 59 bound to OS proc set 11
+ 200/3584 [>.............................] - ETA: 3:17 - loss: 0.9958 - acc: 0.6000OMP: Info #250: KMP_AFFINITY: pid 8024 tid 22468 thread 60 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 10368 thread 61 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 20220 thread 62 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 21260 thread 63 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 21468 thread 64 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 15384 thread 65 bound to OS proc set 5
+ 320/3584 [=>............................] - ETA: 2:48 - loss: 0.9497 - acc: 0.6156OMP: Info #250: KMP_AFFINITY: pid 8024 tid 19944 thread 66 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 560 thread 67 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 588 thread 68 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 12012 thread 69 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 21180 thread 70 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 8024 tid 13168 thread 71 bound to OS proc set 11
+3584/3584 [==============================] - 146s 41ms/step - loss: 0.8750 - acc: 0.7042 - val_loss: 0.7851 - val_acc: 0.7489
+
+Epoch 00001: val_loss improved from inf to 0.78512, saving model to weights.hdf5
+Epoch 2/20
+3584/3584 [==============================] - 118s 33ms/step - loss: 0.7014 - acc: 0.7508 - val_loss: 0.5310 - val_acc: 0.8292
+
+Epoch 00002: val_loss improved from 0.78512 to 0.53104, saving model to weights.hdf5
+Epoch 3/20
+3584/3584 [==============================] - 117s 33ms/step - loss: 0.3717 - acc: 0.8783 - val_loss: 0.9503 - val_acc: 0.7467
+
+Epoch 00003: val_loss did not improve
+Epoch 4/20
+3584/3584 [==============================] - 118s 33ms/step - loss: 0.2721 - acc: 0.9113 - val_loss: 0.2353 - val_acc: 0.9364
+
+Epoch 00004: val_loss improved from 0.53104 to 0.23532, saving model to weights.hdf5
+Epoch 5/20
+3584/3584 [==============================] - 119s 33ms/step - loss: 0.1880 - acc: 0.9481 - val_loss: 15.7295 - val_acc: 0.0234
+
+Epoch 00005: val_loss did not improve
+Epoch 6/20
+3584/3584 [==============================] - 119s 33ms/step - loss: 0.1617 - acc: 0.9637 - val_loss: 0.5006 - val_acc: 0.8560
+
+Epoch 00006: val_loss did not improve
+Epoch 7/20
+3584/3584 [==============================] - 115s 32ms/step - loss: 0.1373 - acc: 0.9752 - val_loss: 0.2911 - val_acc: 0.9308
+
+Epoch 00007: val_loss did not improve
+Epoch 8/20
+3584/3584 [==============================] - 117s 33ms/step - loss: 0.1232 - acc: 0.9796 - val_loss: 2.4634 - val_acc: 0.5324
+
+Epoch 00008: val_loss did not improve
+Epoch 9/20
+3584/3584 [==============================] - 116s 32ms/step - loss: 0.1087 - acc: 0.9841 - val_loss: 0.5219 - val_acc: 0.8672
+
+Epoch 00009: val_loss did not improve
+Epoch 10/20
+3584/3584 [==============================] - 118s 33ms/step - loss: 0.0932 - acc: 0.9902 - val_loss: 0.1960 - val_acc: 0.9632
+
+Epoch 00010: val_loss improved from 0.23532 to 0.19598, saving model to weights.hdf5
+Epoch 11/20
+3584/3584 [==============================] - 120s 33ms/step - loss: 0.0805 - acc: 0.9955 - val_loss: 0.1748 - val_acc: 0.9643
+
+Epoch 00011: val_loss improved from 0.19598 to 0.17483, saving model to weights.hdf5
+Epoch 12/20
+3584/3584 [==============================] - 117s 33ms/step - loss: 0.0910 - acc: 0.9908 - val_loss: 0.1957 - val_acc: 0.9565
+
+Epoch 00012: val_loss did not improve
+Epoch 13/20
+3584/3584 [==============================] - 122s 34ms/step - loss: 0.0831 - acc: 0.9925 - val_loss: 0.3210 - val_acc: 0.9141
+
+Epoch 00013: val_loss did not improve
+Epoch 14/20
+3584/3584 [==============================] - 123s 34ms/step - loss: 0.0718 - acc: 0.9969 - val_loss: 0.3412 - val_acc: 0.9085
+
+Epoch 00014: val_loss did not improve
+Epoch 15/20
+3584/3584 [==============================] - 122s 34ms/step - loss: 0.0707 - acc: 0.9969 - val_loss: 0.6823 - val_acc: 0.8103
+
+Epoch 00015: val_loss did not improve
+Epoch 16/20
+3584/3584 [==============================] - 117s 33ms/step - loss: 0.0668 - acc: 0.9978 - val_loss: 0.1243 - val_acc: 0.9821
+
+Epoch 00016: val_loss improved from 0.17483 to 0.12430, saving model to weights.hdf5
+Epoch 17/20
+3584/3584 [==============================] - 118s 33ms/step - loss: 0.0740 - acc: 0.9950 - val_loss: 1.1391 - val_acc: 0.6830
+
+Epoch 00017: val_loss did not improve
+Epoch 18/20
+3584/3584 [==============================] - 118s 33ms/step - loss: 0.0603 - acc: 0.9994 - val_loss: 0.1857 - val_acc: 0.9654
+
+Epoch 00018: val_loss did not improve
+Epoch 19/20
+3584/3584 [==============================] - 117s 33ms/step - loss: 0.0630 - acc: 0.9978 - val_loss: 0.3021 - val_acc: 0.9208
+
+Epoch 00019: val_loss did not improve
+Epoch 20/20
+3584/3584 [==============================] - 117s 33ms/step - loss: 0.0557 - acc: 0.9997 - val_loss: 0.0992 - val_acc: 0.9877
+
+Epoch 00020: val_loss improved from 0.12430 to 0.09922, saving model to weights.hdf5
+class_names =  ['ADL', 'bag', 'ball', 'basket', 'book', 'chair', 'fork', 'rndy', 'rndychair']
+       total files =  1129 , going to load total_load =  1129
+total files =  1129 , going to load total_load =  1129
+   get_sample_dimensions: cook_d2_h100_rand_2.wav.npz: melgram.shape =  (1, 96, 430, 8)
+ melgram dimensions:  (1, 96, 430, 8)
+
+ Loading class 1/9: 'ADL', File 12/12: Preproc/Train/../Test/ADL/cook_d2_h100_rand_2.wav.npz
+ Loading class 2/9: 'bag', File 154/154: Preproc/Train/../Test/bag/bag_d2h50_rand_4_13.wav.npz
+ Loading class 3/9: 'ball', File 154/154: Preproc/Train/../Test/ball/ball_d1h100_free_4_17.wav.npz
+ Loading class 4/9: 'basket', File 154/154: Preproc/Train/../Test/basket/basket_d6h0_kick_5_44.wav.npz
+ Loading class 5/9: 'book', File 154/154: Preproc/Train/../Test/book/book_d4h50_rand_7_53.wav.npz
+ Loading class 6/9: 'chair', File 231/231: Preproc/Train/../Test/chair/chair_d1h0_back_5_77.wav.npz
+ Loading class 7/9: 'fork', File 154/154: Preproc/Train/../Test/fork/fork_d6h100_rand_2_94.wav.npz
+ Loading class 8/9: 'rndy', File 84/84: Preproc/Train/../Test/rndy/rndy_d4st_free_4_115.wav.npz
+ Loading class 9/9: 'rndychair', File 32/32: Preproc/Train/../Test/rndychair/rndy_d4st_chair_3_132.wav.npz
+acc: 98.85%
+Traceback (most recent call last):
+  File "train_network_5CV.py", line 96, in <module>
+    val_split=args.val, tile=args.tile, max_per_class=args.maxper)
+  File "train_network_5CV.py", line 52, in train_network
+    x_train,X_val=X_train[train_index],X_train[test_index]
+MemoryError: Unable to allocate array with shape (3584, 96, 430, 8) and data type float64
+
+(fyp) G:\Projects\FYP\Audio Fall Classification with Pi\Audio Based Fall Detection 3fold\Audio_Based_Fall_Detection>python eval_network.py
+Using TensorFlow backend.
+class_names =  ['ADL', 'bag', 'ball', 'basket', 'book', 'chair', 'fork', 'rndy', 'rndychair']
+       total files =  1129 , going to load total_load =  1120
+total files =  1129 , going to load total_load =  1120
+   get_sample_dimensions: cook_d2_h100_rand_2.wav.npz: melgram.shape =  (1, 96, 430, 8)
+ melgram dimensions:  (1, 96, 430, 8)
+
+ Loading class 1/9: 'ADL', File 12/12: Preproc/Test/ADL/cook_d2_h100_rand_3.wav.npz
+ Loading class 2/9: 'bag', File 154/154: Preproc/Test/bag/bag_d6h100_rand_2_13.wav.npz
+ Loading class 3/9: 'ball', File 154/154: Preproc/Test/ball/ball_d2h100_free_0_25.wav.npz
+ Loading class 4/9: 'basket', File 154/154: Preproc/Test/basket/basket_d2h0_kick_4_35.wav.npz
+ Loading class 5/9: 'book', File 154/154: Preproc/Test/book/book_d1h50_rand_0_53.wav.npz
+ Loading class 6/9: 'chair', File 231/231: Preproc/Test/chair/chair_d1h0_back_5_78.wav.npz
+ Loading class 7/9: 'fork', File 154/154: Preproc/Test/fork/fork_d2h100_rand_4_89.wav.npz
+ Loading class 8/9: 'rndy', File 84/84: Preproc/Test/rndy/doorrandy_d2_free_0.wav.npz
+ Loading class 9/9: 'rndychair', File 1/32: Preproc/Test/rndychair/rndy_d4st_chair_2_131.wav.npz
+class names =  ['ADL', 'bag', 'ball', 'basket', 'book', 'chair', 'fork', 'rndy', 'rndychair']
+ RaspberryNet: X_shape =  (1120, 96, 430, 8) , channels =  8
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:74: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:517: The name tf.placeholder is deprecated. Please use tf.compat.v1.placeholder instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:4138: The name tf.random_uniform is deprecated. Please use tf.random.uniform instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:174: The name tf.get_default_session is deprecated. Please use tf.compat.v1.get_default_session instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:181: The name tf.ConfigProto is deprecated. Please use tf.compat.v1.ConfigProto instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:186: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2020-02-10 18:11:27.545069: I tensorflow/core/platform/cpu_feature_guard.cc:145] This TensorFlow binary is optimized with Intel(R) MKL-DNN to use the following CPU instructions in performance critical operations:  AVX AVX2
+To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-02-10 18:11:27.564029: I tensorflow/core/common_runtime/process_util.cc:115] Creating new thread pool with default inter op setting: 12. Tune using inter_op_parallelism_threads for best performance.       
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:190: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:199: The name tf.is_variable_initialized is deprecated. Please use tf.compat.v1.is_variable_initialized instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:206: The name tf.variables_initializer is deprecated. Please use tf.compat.v1.variables_initializer instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:1834: The name tf.nn.fused_batch_norm is deprecated. Please use tf.compat.v1.nn.fused_batch_norm instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:133: The name tf.placeholder_with_default is deprecated. Please use tf.compat.v1.placeholder_with_default instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:3976: The name tf.nn.max_pool is deprecated. Please use tf.nn.max_pool2d instead.
+
+Looking for previous weights...
+Weights file detected. Loading from  weights.hdf5
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\optimizers.py:790: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:3295: The name tf.log is deprecated. Please use tf.math.log instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\tensorflow_core\python\ops\math_grad.py:1424: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:986: The name tf.assign_add is deprecated. Please use tf.compat.v1.assign_add instead.
+
+WARNING:tensorflow:From G:\Anaconda3\envs\fyp\lib\site-packages\keras\backend\tensorflow_backend.py:973: The name tf.assign is deprecated. Please use tf.compat.v1.assign instead.
+
+ Available GPUs =  [] , count =  0
+Summary of serial model (duplicated across 0 GPUs):
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+Input (Conv2D)               (None, 96, 430, 32)       2336
+_________________________________________________________________
+separable_conv2d_1 (Separabl (None, 48, 215, 40)       1608
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 48, 215, 40)       160       
+_________________________________________________________________
+separable_conv2d_2 (Separabl (None, 24, 108, 80)       4280
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 24, 108, 80)       320
+_________________________________________________________________
+separable_conv2d_3 (Separabl (None, 12, 54, 112)       11072
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 12, 54, 112)       448
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 6, 27, 112)        0
+_________________________________________________________________
+activation_1 (Activation)    (None, 6, 27, 112)        0
+_________________________________________________________________
+batch_normalization_4 (Batch (None, 6, 27, 112)        448
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 18144)             0
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                290320
+_________________________________________________________________
+activation_2 (Activation)    (None, 16)                0
+_________________________________________________________________
+dense_2 (Dense)              (None, 9)                 153
+_________________________________________________________________
+Output (Activation)          (None, 9)                 0
+=================================================================
+Total params: 311,145
+Trainable params: 310,457
+Non-trainable params: 688
+_________________________________________________________________
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+Input (Conv2D)               (None, 96, 430, 32)       2336
+_________________________________________________________________
+separable_conv2d_1 (Separabl (None, 48, 215, 40)       1608
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 48, 215, 40)       160
+_________________________________________________________________
+separable_conv2d_2 (Separabl (None, 24, 108, 80)       4280
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 24, 108, 80)       320
+_________________________________________________________________
+separable_conv2d_3 (Separabl (None, 12, 54, 112)       11072
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 12, 54, 112)       448
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 6, 27, 112)        0
+_________________________________________________________________
+activation_1 (Activation)    (None, 6, 27, 112)        0
+_________________________________________________________________
+batch_normalization_4 (Batch (None, 6, 27, 112)        448
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 18144)             0
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                290320    
+_________________________________________________________________
+activation_2 (Activation)    (None, 16)                0
+_________________________________________________________________
+dense_2 (Dense)              (None, 9)                 153
+_________________________________________________________________
+Output (Activation)          (None, 9)                 0
+=================================================================
+Total params: 311,145
+Trainable params: 310,457
+Non-trainable params: 688
+_________________________________________________________________
+Running predict...
+OMP: Info #212: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #213: KMP_AFFINITY: cpuid leaf 11 not supported - decoding legacy APIC ids.
+OMP: Info #149: KMP_AFFINITY: Affinity capable, using global cpuid info
+OMP: Info #154: KMP_AFFINITY: Initial OS proc set respected: 0-11
+OMP: Info #156: KMP_AFFINITY: 12 available OS procs
+OMP: Info #157: KMP_AFFINITY: Uniform topology
+OMP: Info #159: KMP_AFFINITY: 1 packages x 1 cores/pkg x 12 threads/core (1 total cores)
+OMP: Info #214: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #171: KMP_AFFINITY: OS proc 0 maps to package 0 thread 0
+OMP: Info #171: KMP_AFFINITY: OS proc 1 maps to package 0 thread 1 
+OMP: Info #171: KMP_AFFINITY: OS proc 2 maps to package 0 thread 2
+OMP: Info #171: KMP_AFFINITY: OS proc 3 maps to package 0 thread 3
+OMP: Info #171: KMP_AFFINITY: OS proc 4 maps to package 0 thread 4
+OMP: Info #171: KMP_AFFINITY: OS proc 5 maps to package 0 thread 5
+OMP: Info #171: KMP_AFFINITY: OS proc 6 maps to package 0 thread 8
+OMP: Info #171: KMP_AFFINITY: OS proc 7 maps to package 0 thread 9
+OMP: Info #171: KMP_AFFINITY: OS proc 8 maps to package 0 thread 10
+OMP: Info #171: KMP_AFFINITY: OS proc 9 maps to package 0 thread 11
+OMP: Info #171: KMP_AFFINITY: OS proc 10 maps to package 0 thread 12
+OMP: Info #171: KMP_AFFINITY: OS proc 11 maps to package 0 thread 13
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 3092 thread 0 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 14608 thread 1 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 14200 thread 2 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 24116 thread 3 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 10420 thread 4 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 9352 thread 5 bound to OS proc set 5
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 15888 thread 6 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 15976 thread 7 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 21340 thread 8 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 18828 thread 9 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 18468 thread 10 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 6552 thread 11 bound to OS proc set 11
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 10904 thread 12 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 8996 thread 13 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 524 thread 14 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 15448 thread 15 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 22160 thread 16 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 6868 thread 17 bound to OS proc set 5
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 12452 thread 18 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 21248 thread 19 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 22940 thread 20 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 10236 thread 21 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 11948 thread 22 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 24424 thread 23 bound to OS proc set 11
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 16124 thread 24 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 5296 thread 25 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 21892 thread 26 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 18836 thread 27 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 13816 thread 28 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 23244 thread 29 bound to OS proc set 5
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 12808 thread 30 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 17628 thread 31 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 11160 thread 32 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 2332 thread 33 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 10128 thread 34 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 3388 thread 35 bound to OS proc set 11
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 584 thread 36 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 24500 thread 37 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 15392 thread 38 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 15848 thread 39 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 24428 thread 40 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 1340 thread 41 bound to OS proc set 5
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 22104 thread 42 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 21540 thread 43 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 1828 thread 44 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 11316 thread 45 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 17836 thread 46 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 18484 thread 47 bound to OS proc set 11
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 8892 thread 48 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 14116 thread 49 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 12148 thread 50 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 11856 thread 51 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 19640 thread 52 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 8588 thread 53 bound to OS proc set 5
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 352 thread 54 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 8048 thread 55 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 15344 thread 56 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 9068 thread 58 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 14420 thread 57 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 16864 thread 59 bound to OS proc set 11
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 23488 thread 60 bound to OS proc set 0
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 16688 thread 61 bound to OS proc set 1
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 11332 thread 62 bound to OS proc set 2
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 1820 thread 63 bound to OS proc set 3
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 13180 thread 64 bound to OS proc set 4
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 12864 thread 65 bound to OS proc set 5
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 4664 thread 66 bound to OS proc set 6
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 2644 thread 67 bound to OS proc set 7
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 17608 thread 68 bound to OS proc set 8
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 24268 thread 69 bound to OS proc set 9
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 13784 thread 70 bound to OS proc set 10
+OMP: Info #250: KMP_AFFINITY: pid 11560 tid 16036 thread 71 bound to OS proc set 11
+Counting mistakes 
+    Found 13 total mistakes out of 1120 attempts
+      Mistakes by class: 
+          class 'ADL': 0
+          class 'bag': 0
+          class 'ball': 1
+                   Preproc/Test/ball/ball_d6h50_free_6_31.wav.npz   : should be ball but came out as bag
+          class 'basket': 2
+                   Preproc/Test/basket/basket_d6h0_free_2_36.wav.npz: should be basket but came out as book
+                   Preproc/Test/basket/basket_d6h0_free_5_35.wav.npz: should be basket but came out as book
+          class 'book': 9
+                   Preproc/Test/book/book_d6h100_rand_1_57.wav.npz: should be book but came out as ball
+                   Preproc/Test/book/book_d1h50_rand_3_61.wav.npz : should be book but came out as bag
+                   Preproc/Test/book/book_d6h50_rand_2_63.wav.npz : should be book but came out as bag
+                   Preproc/Test/book/book_d6h50_rand_1_57.wav.npz : should be book but came out as bag
+                   Preproc/Test/book/book_d4h50_rand_6_52.wav.npz : should be book but came out as ball
+                   Preproc/Test/book/book_d6h100_rand_1_61.wav.npz  : should be book but came out as ball
+                   Preproc/Test/book/book_d1h50_rand_3_57.wav.npz   : should be book but came out as bag
+                   Preproc/Test/book/book_d1h50_rand_3_65.wav.npz   : should be book but came out as bag
+                   Preproc/Test/book/book_d4h100_rand_6_53.wav.npz  : should be book but came out as basket
+          class 'chair': 0
+          class 'fork': 0
+          class 'rndy': 1
+                   Preproc/Test/rndy/rndy_d6st_bar_4_103.wav.npz  : should be rndy but came out as ball
+          class 'rndychair': 0
+Measuring ROC...
+Traceback (most recent call last):
+  File "eval_network.py", line 135, in <module>
+    eval_network(weights_file=args.weights, classpath=args.classpath, batch_size=args.batch_size)
+  File "eval_network.py", line 85, in eval_network
+    fpr[i], tpr[i], _ = roc_curve(Y_test[:, i], y_scores[:, i])
+  File "G:\Anaconda3\envs\fyp\lib\site-packages\sklearn\metrics\ranking.py", line 622, in roc_curve
+    y_true, y_score, pos_label=pos_label, sample_weight=sample_weight)
+  File "G:\Anaconda3\envs\fyp\lib\site-packages\sklearn\metrics\ranking.py", line 396, in _binary_clf_curve
+    raise ValueError("{0} format is not supported".format(y_type))
+ValueError: continuous format is not supported
