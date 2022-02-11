@@ -32,7 +32,7 @@ numpy==1.17.3
 olefile==0.46
 opt-einsum==0+untagged.49.gdbede45.dirty
 Pillow>=6.2.2
-protobuf==3.11.2
+protobuf==3.15.0
 PyAudio==0.2.11
 pygpu==0.7.6
 pyparsing==2.4.5
