@@ -28,7 +28,7 @@ matplotlib==3.1.2
 mkl-service==2.3.0
 networkx==2.4
 numba==0.46.0
-numpy==1.17.3
+numpy==1.22.0
 olefile==0.46
 opt-einsum==0+untagged.49.gdbede45.dirty
 Pillow>=6.2.2
